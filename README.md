@@ -19,18 +19,15 @@ to
 ```
 FishRobotSerialPort serialPort(L"COM3");
 ```
-
-2. If there isn't any message on the screen that means you opened serial port successfully.
-
+2. If there isn't any presnted message on the screen that means you opened serial port successfully.
 3.Now support these command, you can control the fish by input specific command.
-
-	1. Speed
+	* Speed
 	Example(Set fish speed to level 15 (the highest speed))
 	```
 	fishRobot.setSpeed(FishSpeed::LEVEL_14)
 	```
 
-	2. Direction
+	* Direction
 	Example (Set fish direction to middle)
 	```
 	fishRobot.setDirection(FishDirections::MID)
