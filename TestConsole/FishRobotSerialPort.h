@@ -7,15 +7,11 @@
 #include "AbstractSerialPort.h"
 class FishRobotSerialPort{
 private:
-	HANDLE comHandle;
+	HANDLE _comHandle;
 
-	COMSTAT comStatus;
+	LPCWSTR _portName;
 
-	DWORD errors;
-
-	LPCWSTR portName;
-
-	bool isOpen;
+	bool _isOpen;
 	
 	void configuration();
 public:
@@ -25,9 +21,22 @@ public:
 
 	bool open();
 
-	bool write(char* buffer, unsigned int nbChar);
+	///<summary> Writes 4(Default) bytes command to serial port 
+	///<para name="buffer">4 bytes Command buffer.</para>
+	///<para name="nbChar">Size of buffer, default is 4. </para>
+	///</summary>
+	bool write(char* buffer, unsigned int nbChar = 4);
 
+	///<summary> Stub function </summary>
 	int read(char* buffer, unsigned int nbChar);
+
+	///<summary>Close a port</summary>
+	bool close();
+
+	///<summary>
+	///<returns>Port open status</returns>
+	///</summary>
+	bool isPortOpen();
 };
 
 #endif

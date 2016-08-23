@@ -54,44 +54,40 @@ void FishRobotSerialPort::configuration()
 	handflow.XoffLimit = 8192;
 
 	//These commands have no return data.
-	DeviceIoControl(this->comHandle, IOCTL_SERIAL_SET_QUEUE_SIZE, &serialQueueSize, sizeof(serialQueueSize), NULL, NULL, &dwOutput, NULL);
-	DeviceIoControl(this->comHandle, IOCTL_SERIAL_SET_TIMEOUTS, &serialTimeouts, sizeof(serialTimeouts), NULL, NULL, &dwOutput, NULL);
+	DeviceIoControl(this->_comHandle, IOCTL_SERIAL_SET_QUEUE_SIZE, &serialQueueSize, sizeof(serialQueueSize), NULL, NULL, &dwOutput, NULL);
+	DeviceIoControl(this->_comHandle, IOCTL_SERIAL_SET_TIMEOUTS, &serialTimeouts, sizeof(serialTimeouts), NULL, NULL, &dwOutput, NULL);
 	//0f purge
-	DeviceIoControl(this->comHandle, IOCTL_SERIAL_PURGE, &purgeMask, sizeof(purgeMask), NULL, NULL, &dwOutput, NULL);
-	DeviceIoControl(this->comHandle, IOCTL_SERIAL_SET_WAIT_MASK, &waitMask, sizeof(waitMask), NULL, NULL, &dwOutput, NULL);
-	DeviceIoControl(this->comHandle, IOCTL_SERIAL_SET_BAUD_RATE, &baudRate, sizeof(baudRate), NULL, NULL, &dwOutput, NULL);
-	DeviceIoControl(this->comHandle, IOCTL_SERIAL_CLR_RTS, NULL, NULL, NULL, NULL, &dwOutput, NULL);
-	DeviceIoControl(this->comHandle, IOCTL_SERIAL_CLR_DTR, NULL, NULL, NULL, NULL, &dwOutput, NULL);
-	DeviceIoControl(this->comHandle, IOCTL_SERIAL_SET_LINE_CONTROL, &lineControl, sizeof(lineControl), NULL, NULL, &dwOutput, NULL);
-	DeviceIoControl(this->comHandle, IOCTL_SERIAL_SET_CHARS, &chars, sizeof(chars), NULL, NULL, &dwOutput, NULL);
-	DeviceIoControl(this->comHandle, IOCTL_SERIAL_SET_HANDFLOW, &handflow, sizeof(handflow), NULL, NULL, &dwOutput, NULL);
+	DeviceIoControl(this->_comHandle, IOCTL_SERIAL_PURGE, &purgeMask, sizeof(purgeMask), NULL, NULL, &dwOutput, NULL);
+	DeviceIoControl(this->_comHandle, IOCTL_SERIAL_SET_WAIT_MASK, &waitMask, sizeof(waitMask), NULL, NULL, &dwOutput, NULL);
+	DeviceIoControl(this->_comHandle, IOCTL_SERIAL_SET_BAUD_RATE, &baudRate, sizeof(baudRate), NULL, NULL, &dwOutput, NULL);
+	DeviceIoControl(this->_comHandle, IOCTL_SERIAL_CLR_RTS, NULL, NULL, NULL, NULL, &dwOutput, NULL);
+	DeviceIoControl(this->_comHandle, IOCTL_SERIAL_CLR_DTR, NULL, NULL, NULL, NULL, &dwOutput, NULL);
+	DeviceIoControl(this->_comHandle, IOCTL_SERIAL_SET_LINE_CONTROL, &lineControl, sizeof(lineControl), NULL, NULL, &dwOutput, NULL);
+	DeviceIoControl(this->_comHandle, IOCTL_SERIAL_SET_CHARS, &chars, sizeof(chars), NULL, NULL, &dwOutput, NULL);
+	DeviceIoControl(this->_comHandle, IOCTL_SERIAL_SET_HANDFLOW, &handflow, sizeof(handflow), NULL, NULL, &dwOutput, NULL);
 }
 
-FishRobotSerialPort::FishRobotSerialPort(LPCWSTR portName):portName(portName),isOpen(false)
+FishRobotSerialPort::FishRobotSerialPort(LPCWSTR portName):_portName(portName),_isOpen(false)
 {
 	
 }
 
 FishRobotSerialPort::~FishRobotSerialPort()
 {
-	if(this->isOpen){
-		this->isOpen = false;
-		ULONG closeWaitMask = 0x00;
-		DWORD dwOutput;
-		DeviceIoControl(this->comHandle, IOCTL_SERIAL_SET_WAIT_MASK, &closeWaitMask, sizeof(closeWaitMask), NULL, NULL, &dwOutput, NULL);
-		CloseHandle(this->comHandle);
-	}
+	this->close();
 }
 
 bool FishRobotSerialPort::open()
 {
-	this->comHandle = CreateFile(this->portName, GENERIC_READ | GENERIC_WRITE, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
-	if (this->comHandle == INVALID_HANDLE_VALUE) {
-		printf("An error was occurred. Error code is: %u\n", GetLastError());
-		return false;
+	this->_comHandle = CreateFile(this->_portName, GENERIC_READ | GENERIC_WRITE, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+	if (!this->_isOpen) {
+		if (this->_comHandle == INVALID_HANDLE_VALUE) {
+			printf("An error was occurred. Error code is: %u\n", GetLastError());
+			return false;
+		}
+		this->configuration();
+		this->_isOpen = true;
 	}
-	this->configuration();
-	this->isOpen = true;
 	return true;
 }
 
@@ -99,15 +95,36 @@ bool FishRobotSerialPort::write(char * buffer, unsigned int nbChar)
 {
 	DWORD byteSend;
 
-	if (!WriteFile(this->comHandle, buffer, nbChar, &byteSend, NULL)) {
+	if (!this->_isOpen)
+		return false;
+
+	if (!WriteFile(this->_comHandle, buffer, nbChar, &byteSend, NULL)) {
 
 	}
 
-	return false;
+	return true;
 }
 
 int FishRobotSerialPort::read(char * buffer, unsigned int nbChar)
 {
-
 	return 0;
+}
+
+bool FishRobotSerialPort::close()
+{
+	if (this->_isOpen) {
+		this->_isOpen = false;
+		ULONG closeWaitMask = 0x00;
+		DWORD dwOutput;
+		DeviceIoControl(this->_comHandle, IOCTL_SERIAL_SET_WAIT_MASK, &closeWaitMask, sizeof(closeWaitMask), NULL, NULL, &dwOutput, NULL);
+		CloseHandle(this->_comHandle);
+	}
+
+	//return stub here for future use
+	return false;
+}
+
+bool FishRobotSerialPort::isPortOpen()
+{
+	return this->_isOpen;
 }

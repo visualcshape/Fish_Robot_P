@@ -4,20 +4,22 @@
 #include "stdafx.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "FishRobotSerialPort.h"
+#include "FishRobot.h"
 
 int main()
 {
+	char commandName[128];
+	int commandArgs;
+	FishRobotSerialPort serialPort(L"COM4");
 
-	FishRobotSerialPort* serialPort = new FishRobotSerialPort(L"COM4");
-
-	serialPort->open();
-
-	char input[8];
-	while (scanf_s("%7s", input, (unsigned)_countof(input)) == 1) {
-		if (strcmp(input, "w")==0) {
-			char byte_arr[8] = { 0xaa,0x91,0xee,0xfc };
-			serialPort->write(byte_arr, 4);
+	FishRobot fish1(1, &serialPort);
+	fish1.connectFish();
+	while (scanf_s("%s %d", commandName, (unsigned)_countof(commandName), &commandArgs) == 2) {
+		if (strcmp(commandName, "speed") == 0) {
+			fish1.setSpeed((FishSpeed)commandArgs);
+		}
+		else if (strcmp(commandName, "direction") == 0){
+			fish1.setDirection((FishDirections)commandArgs);
 		}
 		else {
 			break;
