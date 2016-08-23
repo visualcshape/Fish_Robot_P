@@ -8,12 +8,21 @@
 
 int main()
 {
-	//SerialPort* serialPort = new SerialPort(L"COM4");
-	//bool isSuccessOpen = serialPort->open();
 
 	FishRobotSerialPort* serialPort = new FishRobotSerialPort(L"COM4");
 
 	serialPort->open();
+
+	char input[8];
+	while (scanf_s("%7s", input, (unsigned)_countof(input)) == 1) {
+		if (strcmp(input, "w")==0) {
+			char byte_arr[8] = { 0xaa,0x91,0xee,0xfc };
+			serialPort->write(byte_arr, 4);
+		}
+		else {
+			break;
+		}
+	}
 
 	//printf("%d", sizeof(unsigned long));
 	system("pause");

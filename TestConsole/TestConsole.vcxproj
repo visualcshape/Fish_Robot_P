@@ -145,7 +145,6 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AbstractSerialPort.h" />
     <ClInclude Include="FishRobotSerialPort.h" />
     <ClInclude Include="SerialPortConstants.h" />
     <ClInclude Include="stdafx.h" />

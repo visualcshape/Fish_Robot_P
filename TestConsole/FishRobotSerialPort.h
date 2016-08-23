@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <Windows.h>
 #include "AbstractSerialPort.h"
-class FishRobotSerialPort : public  AbstractSerialPort{
+class FishRobotSerialPort{
 private:
 	HANDLE comHandle;
 

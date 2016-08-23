@@ -97,6 +97,12 @@ bool FishRobotSerialPort::open()
 
 bool FishRobotSerialPort::write(char * buffer, unsigned int nbChar)
 {
+	DWORD byteSend;
+
+	if (!WriteFile(this->comHandle, buffer, nbChar, &byteSend, NULL)) {
+
+	}
+
 	return false;
 }
 
