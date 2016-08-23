@@ -1,7 +1,7 @@
 #FishRobot Control Example Program
 
 ###Requirements
-These code can only be run on Windows System since it use the serial port library that bound to Windows.
+These code can only be run on Windows System since it uses the serial port library which bounds to Windows.
 
 -----
 ###Compilation
