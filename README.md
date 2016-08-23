@@ -42,14 +42,16 @@ To disable joint#1 on fish ID#1, send these data...
 ```
 aa 91 67 fc
 ```
+-----------------
+#####Depth Control
+Range(Decimal): 11 ~ 150 (cm)
+Depth: 11cm = 4b, 12cm = 4c, 13cm = 4d ..., 150cm = d6
 
-----------
-#########*This area is used for recording...*
-
-
-Fish ID: F1
-FREQ CHANNEL: 1
-
-Right 1: 
-Right 2:
-Right 3: aa 91 ea fc
+```
+aa 9(Fish ID(1~8)) (4b(DEC: 75) ~ d6(DEC 214)) fc
+```
+__Example__:
+To control depth at 149 cm on fish ID#1, send these data...
+```
+aa 91 d5 fc
+```
