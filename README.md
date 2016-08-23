@@ -2,10 +2,10 @@
 
 ####Universal command Pattern
 ```
-aa xx xx fc
+aa 9x yy fc
 ```
 `aa`: Head byte.
-`xx`: Command_1 byte.
+`9x`: Fish ID, 1 <= x <= 8
 `xx`: Command_2 byte.
 `fc`: Final byte.
 
