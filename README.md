@@ -24,17 +24,17 @@ FishRobotSerialPort serialPort(L"COM3");
 
 3.Now support these command, you can control the fish by input specific command.
 
-⋅⋅1. Speed
-⋅⋅Example(Set fish speed to level 15 (the highest speed))
-⋅⋅```
-fishRobot.setSpeed(FishSpeed::LEVEL_14)
-⋅⋅```
+	1. Speed
+	Example(Set fish speed to level 15 (the highest speed))
+	```
+	fishRobot.setSpeed(FishSpeed::LEVEL_14)
+	```
 
-⋅⋅2. Direction
-⋅⋅Example (Set fish direction to middle)
-⋅⋅```
-fishRobot.setDirection(FishDirections::MID)
-⋅⋅```
+	2. Direction
+	Example (Set fish direction to middle)
+	```
+	fishRobot.setDirection(FishDirections::MID)
+	```
 ----------------
 #Robot Fish Control Commandss
 
