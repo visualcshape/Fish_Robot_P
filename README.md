@@ -20,6 +20,7 @@ To adjsut the direction to most left on fish ID#1, send these data...
 aa 91 e0 fc
 ```
 
+--------------
 #####Speed Commadn Pattern:
 ```
 aa 9(Fish ID F(1 ~ 8)) d(Speed (0~f)) fc
@@ -30,6 +31,7 @@ To speed up the swimming speed to level 15 on fish ID#1, send these data...
 aa 91 df fc
 ```
 
+---------------
 #####Disable a Joint
 
 ```
@@ -42,7 +44,7 @@ aa 91 67 fc
 ```
 
 ----------
-#####*This area is used for recording...*
+#########*This area is used for recording...*
 
 
 Fish ID: F1
