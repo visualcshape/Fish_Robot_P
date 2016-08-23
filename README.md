@@ -19,7 +19,7 @@ aa 9(Fish ID F(1 ~ 8)) d(Speed (0~f)) fc
 
 
 ----------
-#####*This area is used as recording...*
+#####*This area is used for recording...*
 
 
 Fish ID: F1
