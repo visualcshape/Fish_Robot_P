@@ -11,28 +11,28 @@ These code can only be run on Windows System since it uses the serial port libra
 -----
 ###Usage
 1. Change COM port name string at constructor of `FishRobotSerialPort`, default is COM4
-If your COM port name of the WPA300C is *COM3*, you can change
-```C++
-FishRobotSerialPort serialPort(L"COM4");
-```
-to
-```
-FishRobotSerialPort serialPort(L"COM3");
-```
+	*If your COM port name of the WPA300C is *COM3*, you can change
+	```C++
+	FishRobotSerialPort serialPort(L"COM4");
+	```
+	to
+	```C++
+	FishRobotSerialPort serialPort(L"COM3");
+	```
 2. If there isn't any presnted message on the screen that means you opened serial port successfully.
-3.Now support these command, you can control the fish by input specific command.
+3. Now support these command, you can control the fish by input specific command.
 	* Speed
 	Example(Set fish speed to level 15 (the highest speed))
 	```
 	fishRobot.setSpeed(FishSpeed::LEVEL_14)
 	```
-
 	* Direction
 	Example (Set fish direction to middle)
 	```
 	fishRobot.setDirection(FishDirections::MID)
 	```
 ----------------
+
 #Robot Fish Control Commandss
 
 ####Universal command Pattern
