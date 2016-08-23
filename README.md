@@ -15,7 +15,7 @@ aa xx xx fc
 aa 9(Fish ID F(1 ~ 8)) e(Direction Left(0~6)Mid(7)Right(8~e)) fc
 ```
 __Example__
-To adjsut the direction to most left on fish ID#1, send these data...
+To adjsut the direction to the most left on fish ID#1, send these data...
 ```
 aa 91 e0 fc
 ```
