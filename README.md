@@ -1,12 +1,14 @@
 ##Control Fish Command Pattern
 
 ####Universal command Pattern
+```
 aa xx xx fc
+```
+`aa`: Head byte.
+`xx`: Command_1 byte.
+`xx`: Command_2 byte.
+`fc`: Final byte.
 
-aa Head byte.
-xx Command_1 byte.
-xx Command_2 byte.
-fc Final byte.
 -----------
 #####Direction Command Pattern:
 ```
