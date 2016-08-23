@@ -1,4 +1,4 @@
-#FishRobot Control Example Program
+﻿#FishRobot Control Example Program
 
 ###Requirements
 These code can only be run on Windows System since it uses the serial port library which bounds to Windows.
@@ -24,17 +24,17 @@ FishRobotSerialPort serialPort(L"COM3");
 
 3.Now support these command, you can control the fish by input specific command.
 
-..1. Speed
-..Example(Set fish speed to level 15 (the highest speed))
-..```
+⋅⋅1. Speed
+⋅⋅Example(Set fish speed to level 15 (the highest speed))
+⋅⋅```
 fishRobot.setSpeed(FishSpeed::LEVEL_14)
-..```
+⋅⋅```
 
-..2. Direction
-..Example (Set fish direction to middle)
-..```
+⋅⋅2. Direction
+⋅⋅Example (Set fish direction to middle)
+⋅⋅```
 fishRobot.setDirection(FishDirections::MID)
-..```
+⋅⋅```
 ----------------
 #Robot Fish Control Commandss
 
