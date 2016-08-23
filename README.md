@@ -11,7 +11,7 @@ These code can only be run on Windows System since it uses the serial port libra
 -----
 ###Usage
 1. Change COM port name string at constructor of `FishRobotSerialPort`, default is COM4
-	*If your COM port name of the WPA300C is *COM3*, you can change
+	* If your COM port name of the WPA300C is *COM3*, you can change
 	```C++
 	FishRobotSerialPort serialPort(L"COM4");
 	```
