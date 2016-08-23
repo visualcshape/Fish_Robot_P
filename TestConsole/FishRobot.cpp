@@ -2,14 +2,16 @@
 #include "FishRobot.h"
 
 
-char* FishRobot::packCommand(char* command)
+char* FishRobot::packCommand(char command)
 {
 	const char HEAD = 0xaa;
 	const char FINAL = 0xfc;
+	const char FISH_ID = 0x90 + this->_fishID;
+	//malloc to reserve the memory for packed command.
 	char* ret = (char*)malloc(4 * sizeof(char));
 	ret[0] = HEAD;
-	ret[1] = command[0];
-	ret[2] = command[1];
+	ret[1] = FISH_ID;
+	ret[2] = command;
 	ret[3] = FINAL;
 	return ret;
 }
@@ -31,9 +33,9 @@ bool FishRobot::connectFish()
 
 bool FishRobot::setDirection(FishDirections direction)
 {
-	char command[2] = {0};
-	command[0] = 0x90 + this->_fishID;
-	command[1] = 0xe0 + direction;
+	char command = 0;
+	const char DIRECTION_BASE_COMMAND = 0xe0;
+	command = DIRECTION_BASE_COMMAND+ direction;
 	char* packedCommand = this->packCommand(command);
 	this->sendCommand(packedCommand);
 	this->_direction = direction;
@@ -45,14 +47,14 @@ bool FishRobot::setDirection(FishDirections direction)
 
 const FishDirections FishRobot::getFishDirection()
 {
-	return FishDirections();
+	return this->_direction;
 }
 
 bool FishRobot::setSpeed(FishSpeed speed)
 {
-	char command[2] = {0};
-	command[0] = 0x90 + this->_fishID;
-	command[1] = 0xd0 + speed;
+	const char SPEED_BASE_COMMAND = 0xd0;
+	char command = 0;
+	command = SPEED_BASE_COMMAND + speed;
 	char* packedCommand = this->packCommand(command);
 	this->sendCommand(packedCommand);
 	this->_speed = speed;
@@ -65,7 +67,7 @@ bool FishRobot::setSpeed(FishSpeed speed)
 
 const FishSpeed FishRobot::getSpeed()
 {
-	return FishSpeed();
+	return this->_speed;
 }
 
 FishRobot::~FishRobot()

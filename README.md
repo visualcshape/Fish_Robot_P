@@ -1,4 +1,42 @@
-##Control Fish Command Pattern
+#FishRobot Control Example Program
+
+###Requirements
+These code can only be run on Windows System since it use the serial port library that bound to Windows.
+
+-----
+###Compilation
+1. Open .sln using VS.
+2. Compile it.
+
+-----
+###Usage
+1. Change COM port name string at constructor of `FishRobotSerialPort`, default is COM4
+If your COM port name of the WPA300C is *COM3*, you can change
+```C++
+FishRobotSerialPort serialPort(L"COM4");
+```
+to
+```
+FishRobotSerialPort serialPort(L"COM3");
+```
+
+2. If there isn't any message on the screen that means you opened serial port successfully.
+
+3.Now support these command, you can control the fish by input specific command.
+
+..1. Speed
+..Example(Set fish speed to level 15 (the highest speed))
+..```
+fishRobot.setSpeed(FishSpeed::LEVEL_14)
+..```
+
+..2. Direction
+..Example (Set fish direction to middle)
+..```
+fishRobot.setDirection(FishDirections::MID)
+..```
+----------------
+#Robot Fish Control Commandss
 
 ####Universal command Pattern
 ```

@@ -18,7 +18,7 @@ private:
 
 	FishRobotSerialPort *_serialPort;
 protected:
-	char* packCommand(char* command);
+	char* packCommand(char command);
 
 	void sendCommand(char* command);
 public:
