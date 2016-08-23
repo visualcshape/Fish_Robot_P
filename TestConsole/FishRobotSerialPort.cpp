@@ -103,4 +103,5 @@ bool FishRobotSerialPort::write(char * buffer, unsigned int nbChar)
 int FishRobotSerialPort::read(char * buffer, unsigned int nbChar)
 {
 
+	return 0;
 }
