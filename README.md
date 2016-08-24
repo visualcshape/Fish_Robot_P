@@ -77,7 +77,7 @@ Joint3_enabled = `0x02`
 
 Joint4_enabled = `0x01`
 
-For example, if you want to enable joint #1 and #3 ( on contrary, disable joint #2 and #4)...
+For example, if you want to enable joint #1 and #3 ( on the other hand, disable joint #2 and #4)...
 
 ```
 calculated_reault = 0x08 OR 0x02
