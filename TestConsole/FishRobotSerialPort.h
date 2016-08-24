@@ -13,7 +13,7 @@ private:
 
 	bool _isOpen;
 	
-	void configuration();
+	void configure();
 public:
 	FishRobotSerialPort(LPCWSTR portName);
 

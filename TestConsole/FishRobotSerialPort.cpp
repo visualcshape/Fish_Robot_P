@@ -3,7 +3,7 @@
 #include <ntddser.h>
 //Referenced from http://playground.arduino.cc/Interfacing/CPPWindows
 
-void FishRobotSerialPort::configuration()
+void FishRobotSerialPort::configure()
 {
 	//Declares
 	DWORD dwOutput;
@@ -85,7 +85,7 @@ bool FishRobotSerialPort::open()
 			printf("An error was occurred. Error code is: %u\n", GetLastError());
 			return false;
 		}
-		this->configuration();
+		this->configure();
 		this->_isOpen = true;
 	}
 	return true;

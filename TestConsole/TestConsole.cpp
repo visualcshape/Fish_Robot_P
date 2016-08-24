@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "FishRobot.h"
+#include "Utility.h"
 
 int main()
 {
@@ -15,6 +16,7 @@ int main()
 	FishRobot fish1(1, &serialPort);
 	fish1.connectFish();
 	while (scanf_s("%s %d", commandName, (unsigned)_countof(commandName), &commandArgs) == 2) {
+		Utility::toLowerCase(commandName);
 		if (strcmp(commandName, "speed") == 0) {
 			fish1.setSpeed((FishSpeed)commandArgs);
 		}
