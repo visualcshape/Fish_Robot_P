@@ -69,13 +69,13 @@ aa 91 df fc
 ---------------
 #####Enable a Joint
 
-Joint1_enabled = `0x08`
+Joint1_enabled = `0x8`
 
-Joint2_enabled = `0x04`
+Joint2_enabled = `0x4`
 
-Joint3_enabled = `0x02`
+Joint3_enabled = `0x2`
 
-Joint4_enabled = `0x01`
+Joint4_enabled = `0x1`
 
 For example, if you want to enable joint #1 and #3 ( on the other hand, disable joint #2 and #4)...
 
