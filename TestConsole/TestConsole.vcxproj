@@ -92,6 +92,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Lua/liblua53.a;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -148,6 +149,12 @@
     <ClInclude Include="FishEnumerations.h" />
     <ClInclude Include="FishRobot.h" />
     <ClInclude Include="FishRobotSerialPort.h" />
+    <ClInclude Include="FishRobot_Lua.h" />
+    <ClInclude Include="Lua\include\lauxlib.h" />
+    <ClInclude Include="Lua\include\lua.h" />
+    <ClInclude Include="Lua\include\lua.hpp" />
+    <ClInclude Include="Lua\include\luaconf.h" />
+    <ClInclude Include="Lua\include\lualib.h" />
     <ClInclude Include="SerialPortConstants.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -156,6 +163,7 @@
   <ItemGroup>
     <ClCompile Include="FishRobot.cpp" />
     <ClCompile Include="FishRobotSerialPort.cpp" />
+    <ClCompile Include="FishRobot_Lua.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -164,6 +172,12 @@
     </ClCompile>
     <ClCompile Include="TestConsole.cpp" />
     <ClCompile Include="Utility.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="Lua\liblua53.a" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Lua\lua53.dll" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

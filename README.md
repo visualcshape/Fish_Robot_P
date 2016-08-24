@@ -67,16 +67,23 @@ aa 91 df fc
 ```
 
 ---------------
-#####Disable a Joint
+#####Enable a Joint
+
+Joint1_enabled = `0x08`
+
+Joint2_enabled = `0x04`
+
+Joint3_enabled = `0x02`
+
+Joint4_enabled = `0x01`
+
+For example, if you want to enable joint #1 and #3 ( on contrary, disable joint #2 and #4)...
 
 ```
-aa 9(Fish ID(1 ~ 8)) 6(Joint 1: 7, Joint 2: 3, Joint 3: 1, Joint4: 0) fc
+calculated_reault = 0x08 OR 0x02
+aa 9(Fish ID(1 ~ 8)) 6(calculated_result) fc
 ````
-__Example__ 
-To disable joint#1 on fish ID#1, send these data...
-```
-aa 91 67 fc
-```
+
 -----------------
 #####Depth Control
 Range(Decimal): 11 ~ 150 (cm)

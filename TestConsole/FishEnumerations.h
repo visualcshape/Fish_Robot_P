@@ -34,3 +34,9 @@ typedef enum SPEED{
 	LEVEL_14,
 	LEVEL_15
 }FishSpeed;
+
+//Constant definitions
+#define ENABLE_JOINT_1 0x08
+#define ENABLE_JOINT_2 0x04
+#define ENABLE_JOINT_3 0x02
+#define ENABLE_JOINT_4 0x01

@@ -27,11 +27,14 @@ public:
 
 	bool connectFish();
 
-	//Reserved boolean for future returned info.
+	//Set fish's direction.
+	//If successfully set, returns true, otherwise returns false.
 	bool setDirection(FishDirections direction);
 
 	const FishDirections getFishDirection();
 
+	//Set fish swimming speed.
+	//If successfully set, returns true, otherwise returns false.
 	bool setSpeed(FishSpeed speed);
 
 	const FishSpeed getSpeed();

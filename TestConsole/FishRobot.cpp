@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "FishRobot.h"
-
+#include "Utility.h"
 
 char* FishRobot::packCommand(char command)
 {
@@ -35,14 +35,17 @@ bool FishRobot::setDirection(FishDirections direction)
 {
 	char command = 0;
 	const char DIRECTION_BASE_COMMAND = 0xe0;
+	//Check range if in range
+	if(!Utility::isInRange(FishDirections::LEFT_6, FishDirections::RIGHT_6, direction))
+		return false;
 	command = DIRECTION_BASE_COMMAND+ direction;
 	char* packedCommand = this->packCommand(command);
 	this->sendCommand(packedCommand);
 	this->_direction = direction;
 	//free allocated memory
 	free(packedCommand);
-	//stub return for future use
-	return false;
+
+	return true;
 }
 
 const FishDirections FishRobot::getFishDirection()
@@ -54,6 +57,9 @@ bool FishRobot::setSpeed(FishSpeed speed)
 {
 	const char SPEED_BASE_COMMAND = 0xd0;
 	char command = 0;
+	//Check speed in range.
+	if (!Utility::isInRange(FishSpeed::LEVEL_15, FishSpeed::LEVEL_1, speed))
+		return false;
 	command = SPEED_BASE_COMMAND + speed;
 	char* packedCommand = this->packCommand(command);
 	this->sendCommand(packedCommand);
@@ -61,7 +67,7 @@ bool FishRobot::setSpeed(FishSpeed speed)
 	//free allocated memory
 	free(packedCommand);
 	//stub return for futre use
-	return false;
+	return true;
 }
 
 
