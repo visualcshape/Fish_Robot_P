@@ -1,9 +1,9 @@
-#include "FishRobotSerialPort.h"
+#include "RFTransmittorSerialPort.h"
 #include "SerialPortConstants.h"
 #include <ntddser.h>
 //Referenced from http://playground.arduino.cc/Interfacing/CPPWindows
 
-void FishRobotSerialPort::configure()
+void RFTransmittorSerialPort::configure()
 {
 	//Declares
 	DWORD dwOutput;
@@ -67,17 +67,17 @@ void FishRobotSerialPort::configure()
 	DeviceIoControl(this->_comHandle, IOCTL_SERIAL_SET_HANDFLOW, &handflow, sizeof(handflow), NULL, NULL, &dwOutput, NULL);
 }
 
-FishRobotSerialPort::FishRobotSerialPort(LPCWSTR portName):_portName(portName),_isOpen(false)
+RFTransmittorSerialPort::RFTransmittorSerialPort(LPCWSTR portName):_portName(portName),_isOpen(false)
 {
 	
 }
 
-FishRobotSerialPort::~FishRobotSerialPort()
+RFTransmittorSerialPort::~RFTransmittorSerialPort()
 {
 	this->close();
 }
 
-bool FishRobotSerialPort::open()
+bool RFTransmittorSerialPort::open()
 {
 	this->_comHandle = CreateFile(this->_portName, GENERIC_READ | GENERIC_WRITE, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 	if (!this->_isOpen) {
@@ -91,7 +91,7 @@ bool FishRobotSerialPort::open()
 	return true;
 }
 
-bool FishRobotSerialPort::write(char * buffer, unsigned int nbChar)
+bool RFTransmittorSerialPort::write(char * buffer, unsigned int nbChar)
 {
 	DWORD byteSend;
 
@@ -99,18 +99,18 @@ bool FishRobotSerialPort::write(char * buffer, unsigned int nbChar)
 		return false;
 
 	if (!WriteFile(this->_comHandle, buffer, nbChar, &byteSend, NULL)) {
-
+		//Error handling here...
 	}
 
 	return true;
 }
 
-int FishRobotSerialPort::read(char * buffer, unsigned int nbChar)
+int RFTransmittorSerialPort::read(char * buffer, unsigned int nbChar)
 {
 	return 0;
 }
 
-bool FishRobotSerialPort::close()
+bool RFTransmittorSerialPort::close()
 {
 	if (this->_isOpen) {
 		this->_isOpen = false;
@@ -124,7 +124,7 @@ bool FishRobotSerialPort::close()
 	return false;
 }
 
-bool FishRobotSerialPort::isPortOpen()
+bool RFTransmittorSerialPort::isPortOpen()
 {
 	return this->_isOpen;
 }

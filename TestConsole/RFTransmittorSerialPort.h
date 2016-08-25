@@ -4,8 +4,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <Windows.h>
-#include "AbstractSerialPort.h"
-class FishRobotSerialPort{
+
+class RFTransmittorSerialPort{
 private:
 	HANDLE _comHandle;
 
@@ -15,9 +15,9 @@ private:
 	
 	void configure();
 public:
-	FishRobotSerialPort(LPCWSTR portName);
+	RFTransmittorSerialPort(LPCWSTR portName);
 
-	virtual ~FishRobotSerialPort();
+	virtual ~RFTransmittorSerialPort();
 
 	bool open();
 

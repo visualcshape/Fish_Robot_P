@@ -27,9 +27,6 @@
     <ClInclude Include="SerialPortConstants.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
-    <ClInclude Include="FishRobotSerialPort.h">
-      <Filter>標頭檔</Filter>
-    </ClInclude>
     <ClInclude Include="FishRobot.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
@@ -57,15 +54,15 @@
     <ClInclude Include="FishRobot_Lua.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
+    <ClInclude Include="RFTransmittorSerialPort.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>原始程式檔</Filter>
     </ClCompile>
     <ClCompile Include="TestConsole.cpp">
-      <Filter>原始程式檔</Filter>
-    </ClCompile>
-    <ClCompile Include="FishRobotSerialPort.cpp">
       <Filter>原始程式檔</Filter>
     </ClCompile>
     <ClCompile Include="FishRobot.cpp">
@@ -75,6 +72,9 @@
       <Filter>原始程式檔</Filter>
     </ClCompile>
     <ClCompile Include="FishRobot_Lua.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="RFTransmittorSerialPort.cpp">
       <Filter>原始程式檔</Filter>
     </ClCompile>
   </ItemGroup>

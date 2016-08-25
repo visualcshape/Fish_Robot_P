@@ -11,7 +11,7 @@ int main()
 {
 	char commandName[128];
 	int commandArgs;
-	FishRobotSerialPort serialPort(L"COM4");
+	RFTransmittorSerialPort serialPort(L"COM4");
 
 	FishRobot fish1(1, &serialPort);
 	fish1.connectFish();
@@ -29,7 +29,7 @@ int main()
 	}
 
 	//printf("%d", sizeof(unsigned long));
-	system("pause");
+	//system("pause");
     return 0;
 }
 

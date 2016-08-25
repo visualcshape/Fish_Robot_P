@@ -18,7 +18,7 @@ bool Utility::isInRange(const int max, const int min, const int number)
 
 void Utility::toLowerCase(char* str)
 {
-	const int DIFF = 32;
+	const int DIFF = 'a' - 'A';
 	int offset = 0;
 	while (*(str+offset) != '\0') {
 		if (*(str+offset) <= 90 && *(str+offset) >= 65)

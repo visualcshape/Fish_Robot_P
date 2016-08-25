@@ -92,7 +92,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Lua/liblua53.a;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -148,13 +148,25 @@
   <ItemGroup>
     <ClInclude Include="FishEnumerations.h" />
     <ClInclude Include="FishRobot.h" />
-    <ClInclude Include="FishRobotSerialPort.h" />
-    <ClInclude Include="FishRobot_Lua.h" />
-    <ClInclude Include="Lua\include\lauxlib.h" />
-    <ClInclude Include="Lua\include\lua.h" />
-    <ClInclude Include="Lua\include\lua.hpp" />
-    <ClInclude Include="Lua\include\luaconf.h" />
-    <ClInclude Include="Lua\include\lualib.h" />
+    <ClInclude Include="RFTransmittorSerialPort.h" />
+    <ClInclude Include="FishRobot_Lua.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Lua\include\lauxlib.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Lua\include\lua.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Lua\include\lua.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Lua\include\luaconf.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Lua\include\lualib.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="SerialPortConstants.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -162,8 +174,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FishRobot.cpp" />
-    <ClCompile Include="FishRobotSerialPort.cpp" />
-    <ClCompile Include="FishRobot_Lua.cpp" />
+    <ClCompile Include="RFTransmittorSerialPort.cpp" />
+    <ClCompile Include="FishRobot_Lua.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
