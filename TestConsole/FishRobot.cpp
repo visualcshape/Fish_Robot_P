@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "FishRobot.h"
 #include "Utility.h"
+#include <chrono>
+#include <thread>
 
 char* FishRobot::packCommand(char command)
 {
@@ -133,6 +135,7 @@ int FishRobot::getDepthControl()
 bool FishRobot::stopActions()
 {
 	this->setDirection(FishDirections::MID);
+	std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 	this->setSpeed(FishSpeed::LEVEL_1);
 	return false;
 }
@@ -146,10 +149,10 @@ void FishRobot::printFishConfiguration()
 	const char GET_CONFIGURATION_COMMAND = 0x55;
 	char* packedCommand = this->packCommand(GET_CONFIGURATION_COMMAND);
 	this->sendCommand(packedCommand);
-	
 
 }
 
 FishRobot::~FishRobot()
 {
+	this->stopActions();
 }

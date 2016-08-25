@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FishRobotLib", "FishRobotLib\FishRobotLib.vcxproj", "{9AB8BE8A-61DE-4BF9-B52A-854459EAC0D9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -26,6 +28,14 @@ Global
 		{4294C354-E8B1-462F-BF40-252F598BB8BF}.Release|x64.Build.0 = Release|x64
 		{4294C354-E8B1-462F-BF40-252F598BB8BF}.Release|x86.ActiveCfg = Release|Win32
 		{4294C354-E8B1-462F-BF40-252F598BB8BF}.Release|x86.Build.0 = Release|Win32
+		{9AB8BE8A-61DE-4BF9-B52A-854459EAC0D9}.Debug|x64.ActiveCfg = Debug|x64
+		{9AB8BE8A-61DE-4BF9-B52A-854459EAC0D9}.Debug|x64.Build.0 = Debug|x64
+		{9AB8BE8A-61DE-4BF9-B52A-854459EAC0D9}.Debug|x86.ActiveCfg = Debug|Win32
+		{9AB8BE8A-61DE-4BF9-B52A-854459EAC0D9}.Debug|x86.Build.0 = Debug|Win32
+		{9AB8BE8A-61DE-4BF9-B52A-854459EAC0D9}.Release|x64.ActiveCfg = Release|x64
+		{9AB8BE8A-61DE-4BF9-B52A-854459EAC0D9}.Release|x64.Build.0 = Release|x64
+		{9AB8BE8A-61DE-4BF9-B52A-854459EAC0D9}.Release|x86.ActiveCfg = Release|Win32
+		{9AB8BE8A-61DE-4BF9-B52A-854459EAC0D9}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
